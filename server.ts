@@ -1,33 +1,49 @@
 import { OakApp, OakRouter } from "./deps.ts";
 
-interface Deno {
-    name: string;
-    type: string;
-    version: string;
-    createdBy: string;
-    releaseDate: Date;
+interface Runtime {
+  name: string;
+  description: string;
+  version: string;
+  releaseDate: Date;
+  isLatestRelease: boolean;
 }
 
-const deno: Deno = {
-    name: "Deno",
-    type: "JS/TS Runtime",
-    version: "1.5.2",
-    createdBy: "Ryan Dahl",
-    releaseDate: new Date("2020.11.09"),
+const deno1: Runtime = {
+  name: "Deno",
+  description: "A secure runtime for JavaScript and TypeScript",
+  version: "1.5.2",
+  releaseDate: new Date("2020-11-09"),
+  isLatestRelease: false,
 };
 
-const denos: Deno[] = [deno];
+const deno2: Runtime = {
+  name: "Deno",
+  description: "A secure runtime for JavaScript and TypeScript",
+  version: "1.6.1",
+  releaseDate: new Date("2020-12-14"),
+  isLatestRelease: true,
+};
+
+const node: Runtime = {
+  name: "Node.js",
+  description: "JavaScript runtime built on Chrome's V8 JavaScript engine.",
+  version: "15.4.0",
+  releaseDate: new Date("2020-12-09"),
+  isLatestRelease: true,
+};
+
+const runtimes: Runtime[] = [deno1, deno2, node];
 
 const app = new OakApp();
 const router = new OakRouter();
 
-router.get("/api/deno", (ctx) => {
-    ctx.response.body = denos;
+router.get("/api/runtime", (ctx) => {
+  ctx.response.body = runtimes;
 });
 
-router.get("/api/deno/:version", (ctx) => {
-    const { version } = ctx.params;
-    ctx.response.body = denos.find(d => d.version === version);
+router.get("/api/runtime/:version", (ctx) => {
+  const { version } = ctx.params;
+  ctx.response.body = runtimes.find((r) => r.version === version);
 });
 
 app.use(router.routes());
