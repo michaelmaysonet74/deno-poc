@@ -13,4 +13,4 @@ RUN deno cache server.ts
 
 EXPOSE 8080
 
-CMD [ "deno", "run", "--allow-net", "server.ts" ]
+CMD [ "run", "--allow-net", "server.ts" ]
