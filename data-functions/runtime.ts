@@ -28,7 +28,9 @@ const runtimes: Runtime[] = [deno1, deno2, node];
 
 export const getRuntimes = async (): Promise<Runtime[]> => runtimes;
 
-export const getRuntimeByVersion = async (version?: string): Promise<Runtime | null> => {
+export const getRuntimeByVersion = async (
+  version?: string,
+): Promise<Runtime | null> => {
   const runtimes = await getRuntimes();
   return runtimes.find((r) => r.version === version) || null;
 };
