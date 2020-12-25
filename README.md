@@ -1,6 +1,6 @@
 # Deno POC
 
-A microservice POC built with Deno and Oak.
+A microservice POC built with [Deno](https://github.com/denoland/deno) and [Oak](https://github.com/oakserver/oak).
 
 ## Getting Started
 
