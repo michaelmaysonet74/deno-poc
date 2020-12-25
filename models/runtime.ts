@@ -4,4 +4,5 @@ export interface Runtime {
   version: string;
   releaseDate: Date;
   isLatestRelease: boolean;
+  website?: string;
 }
