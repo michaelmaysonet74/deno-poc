@@ -14,9 +14,5 @@ $ deno run --allow-net server.ts
 
 ### Build and Run Server with Docker
 ```
-$ docker build -t deno-poc .
-```
-
-```
-$ docker run -it --init -p 8080:8080 deno-poc
+$ docker build -t deno-poc . && docker run -it --init -p 8080:8080 deno-poc
 ```
