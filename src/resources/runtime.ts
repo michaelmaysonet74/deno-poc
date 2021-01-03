@@ -9,21 +9,21 @@ import {
 
 const router = new OakRouter();
 
-router.get("/", async (ctx) => {
+router.get("/api/runtimes", async (ctx) => {
   ctx.response.body = await getRuntimes();
 });
 
-router.get("/:id", async (ctx) => {
+router.get("/api/runtimes/:id", async (ctx) => {
   const { id } = ctx.params;
   ctx.response.body = await getRuntimeById(id ?? "");
 });
 
-router.get("/:version", async (ctx) => {
+router.get("/api/runtimes/:version", async (ctx) => {
   const { version } = ctx.params;
   ctx.response.body = await getRuntimeByVersion(version);
 });
 
-router.post("/", async (ctx) => {
+router.post("/api/runtimes", async (ctx) => {
   try {
     const runtime = await ctx.request.body().value as Runtime;
     const newId = await createRuntime(runtime);
@@ -38,12 +38,12 @@ router.post("/", async (ctx) => {
   }
 });
 
-router.put("/:id", async (ctx) => {
+router.put("/api/runtimes/:id", async (ctx) => {
   const { id } = ctx.params;
   console.log(id);
 });
 
-router.delete("/:id", async (ctx) => {
+router.delete("/api/runtimes/:id", async (ctx) => {
   const { id } = ctx.params;
   console.log(id);
 });
