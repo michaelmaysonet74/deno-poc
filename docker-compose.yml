@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  deno-poc:
+    image: deno-poc
+    ports:
+      - "8080:8080"
+    networks:
+      - deno-service
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - deno-service
+
+networks:
+  deno-service:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local

@@ -1,4 +1,5 @@
 .DS_Store
+.deno_plugins
 
 # IDEs and TextEditors
 .vscode
