@@ -8,6 +8,4 @@ export type {
   RouterMiddleware,
 } from "https://deno.land/x/oak@v6.3.2/router.ts";
 
-export {
-  MongoClient,
-} from "https://deno.land/x/mongo@v0.13.0/mod.ts";
+export { MongoClient } from "https://deno.land/x/mongo@v0.13.0/mod.ts";
