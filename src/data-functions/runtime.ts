@@ -21,13 +21,9 @@ export const createRuntime = async (runtime: Runtime) =>
 
 export const updateRuntime = async (id: string, runtime: Runtime) => {
   const oldRuntime = await getRuntimeById(id);
-
-  await runtimes?.updateOne(
-    { _id: { $oid: id } },
-    { ...oldRuntime, ...runtime },
-  );
-
-  return await getRuntimeById(id);
+  const update = { ...oldRuntime, ...runtime };
+  await runtimes?.updateOne({ _id: { $oid: id } }, update);
+  return update;
 };
 
 export const deleteRuntime = async (id: string) =>
