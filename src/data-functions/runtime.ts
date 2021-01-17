@@ -5,19 +5,18 @@ const db = getDB();
 const runtimes = db?.collection<Runtime>("runtime");
 
 export const getRuntimes = async (): Promise<Runtime[]> =>
-  await runtimes?.find({}) ?? [];
+  runtimes?.find({}) ?? [];
 
 export const getRuntimeById = async (
   id: string,
-): Promise<Runtime | null> =>
-  await runtimes?.findOne({ _id: { $oid: id } }) || null;
+): Promise<Runtime | null> => runtimes?.findOne({ _id: { $oid: id } }) || null;
 
 export const getRuntimeByVersion = async (
   version?: string,
-): Promise<Runtime | null> => await runtimes?.findOne({ version }) || null;
+): Promise<Runtime | null> => runtimes?.findOne({ version }) || null;
 
 export const createRuntime = async (runtime: Runtime) =>
-  await runtimes?.insertOne(runtime);
+  runtimes?.insertOne(runtime);
 
 export const updateRuntime = async (id: string, runtime: Runtime) => {
   const oldRuntime = await getRuntimeById(id);
@@ -27,4 +26,4 @@ export const updateRuntime = async (id: string, runtime: Runtime) => {
 };
 
 export const deleteRuntime = async (id: string) =>
-  await runtimes?.deleteOne({ _id: { $oid: id } });
+  runtimes?.deleteOne({ _id: { $oid: id } });
