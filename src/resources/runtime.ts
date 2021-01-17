@@ -34,8 +34,7 @@ router.post("/api/runtimes", async (ctx) => {
       ctx.response.status = 201;
     }
   } catch (e) {
-    console.log(e);
-    throw e;
+    console.log(e);  
   }
 });
 
@@ -48,7 +47,6 @@ router.put("/api/runtimes/:id", async (ctx) => {
     }
   } catch (e) {
     console.log(e);
-    throw e;
   }
 });
 
@@ -60,7 +58,6 @@ router.delete("/api/runtimes/:id", async (ctx) => {
     }
   } catch (e) {
     console.log(e);
-    throw e;
   }
 });
 
