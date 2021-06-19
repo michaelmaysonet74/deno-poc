@@ -1,13 +1,15 @@
-FROM hayd/deno:1.6.2
+FROM denoland/deno:1.11.1
 
 WORKDIR /app
 
+USER deno
+
 COPY /src/deps.ts .
-RUN deno cache --unstable deps.ts
+RUN deno cache deps.ts
 
 ADD /src .
-RUN deno cache --unstable server.ts
+RUN deno cache server.ts
 
 EXPOSE 8080
 
-CMD ["run", "--allow-all", "--unstable", "server.ts"]
+CMD ["run", "--allow-all", "server.ts"]

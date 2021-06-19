@@ -29,8 +29,9 @@ router.post("/api/runtimes", async (ctx) => {
   try {
     const runtime = await ctx.request.body().value as Runtime;
     const newId = await createRuntime(runtime);
-    if (newId?.$oid) {
-      ctx.response.body = await getRuntimeById(newId.$oid);
+
+    if (newId) {
+      ctx.response.body = await getRuntimeById(`${newId}`);
       ctx.response.status = 201;
     }
   } catch (e) {
@@ -42,6 +43,7 @@ router.put("/api/runtimes/:id", async (ctx) => {
   try {
     const { id = "" } = ctx.params;
     const runtime = await ctx.request.body().value as Runtime;
+
     if (id && runtime) {
       ctx.response.body = await updateRuntime(id, runtime);
     }
@@ -53,8 +55,10 @@ router.put("/api/runtimes/:id", async (ctx) => {
 router.delete("/api/runtimes/:id", async (ctx) => {
   try {
     const { id = "" } = ctx.params;
+
     if (id) {
       await deleteRuntime(id);
+      ctx.response.status = 200;
     }
   } catch (e) {
     console.log(e);

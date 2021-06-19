@@ -6,6 +6,6 @@ export {
 export type {
   RouterContext,
   RouterMiddleware,
-} from "https://deno.land/x/oak@v6.3.2/router.ts";
+} from "https://deno.land/x/oak@v7.6.2/router.ts";
 
-export { MongoClient } from "https://deno.land/x/mongo@v0.13.0/mod.ts";
+export { Bson, MongoClient } from "https://deno.land/x/mongo@v0.22.0/mod.ts";
