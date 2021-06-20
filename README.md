@@ -12,7 +12,7 @@ server.
 ### Run Server Locally with Deno
 
 ```
-$ deno run --allow-all --unstable ./src/server.ts
+$ deno run --allow-all ./src/server.ts
 ```
 
 ### Build and Run Server with Docker
