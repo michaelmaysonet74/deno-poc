@@ -1,5 +1,7 @@
+import { Bson } from "../deps.ts";
+
 export interface Runtime {
-  _id?: { $oid: string };
+  _id?: Bson.ObjectId;
   name: string;
   description: string;
   version: string;

@@ -20,7 +20,7 @@ router.get("/api/runtimes/:id", async (ctx) => {
   ctx.response.body = await getRuntimeById(id);
 });
 
-router.get("/api/runtimes/:version", async (ctx) => {
+router.get("/api/runtimes/version/:version", async (ctx) => {
   const { version } = ctx.params;
   ctx.response.body = await getRuntimeByVersion(version);
 });
@@ -35,7 +35,7 @@ router.post("/api/runtimes", async (ctx) => {
       ctx.response.status = 201;
     }
   } catch (e) {
-    console.log(e);  
+    console.error(e);
   }
 });
 
@@ -48,7 +48,7 @@ router.put("/api/runtimes/:id", async (ctx) => {
       ctx.response.body = await updateRuntime(id, runtime);
     }
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 });
 
@@ -61,7 +61,7 @@ router.delete("/api/runtimes/:id", async (ctx) => {
       ctx.response.status = 200;
     }
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 });
 
