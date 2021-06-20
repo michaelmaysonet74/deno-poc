@@ -1,7 +1,9 @@
 import { Bson, MongoClient } from "../deps.ts";
 import PseudoDB from "./pseudo.ts";
 
-export const getBsonId = (id: string) => new Bson.ObjectId(id);
+export const getBsonId = (
+  id: string,
+): Bson.ObjectID => new Bson.ObjectId(id);
 
 export const getDB = async () => {
   try {

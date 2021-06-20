@@ -1,7 +1,7 @@
 export {
   Application as OakApp,
   Router as OakRouter,
-} from "https://deno.land/x/oak/mod.ts";
+} from "https://deno.land/x/oak@v7.6.2/mod.ts";
 
 export type {
   RouterContext,
